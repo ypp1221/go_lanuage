@@ -1,7 +1,18 @@
 package main
 
+/*
+#include "util/util.h"
+#cgo CFLAGS: -Iinclude
+
+#cgo LDFLAGS: -Llib -llibvideo
+
+*/
+//#cgo LDFLAGS: -Wl,--allow-multiple-definition
+import "C"
+
 import (
 	"fmt"
+	"util"
 )
 
 func main() {
@@ -34,5 +45,8 @@ func main() {
 		}
 		fmt.Println()
 	}
+	fmt.Println("------------------------------------------")
+	fmt.Println(C.sumab(C.int(2), C.int(3)))
+	util.GoSum(4, 5)
 
 }
